@@ -1,0 +1,75 @@
+<section class="mt-5">
+
+  <h2>View All Leads</h2>
+    
+  
+  <div class="table-data">
+  
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="first_name">
+          <th mat-header-cell *matHeaderCellDef> first_name. </th>
+          <td mat-cell *matCellDef="let element"> {{element.first_name | defultString}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="last_name">
+          <th mat-header-cell *matHeaderCellDef> last_name </th>
+          <td mat-cell *matCellDef="let element"> {{element.last_name | defultString}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email | defultString}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="source">
+          <th mat-header-cell *matHeaderCellDef> source </th>
+          <td mat-cell *matCellDef="let element"> {{element.source | defultString}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="cell_phone">
+          <th mat-header-cell *matHeaderCellDef> cell_phone </th>
+          <td mat-cell *matCellDef="let element"> {{element.cell_phone | defultString}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="home_phone">
+          <th mat-header-cell *matHeaderCellDef> home_phone </th>
+          <td mat-cell *matCellDef="let element"> {{element.home_phone | defultString}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              class="bg-success text-white btn-view"
+              (click)="getLeadId(element.lead_id)"
+              mat-button
+            >
+              View Potential Duplicated
+            </button>
+          </td>
+        </ng-container>
+  
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      
+      <mat-paginator
+        [pageSizeOptions]=" [5,10, 15,20 , 50]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements"
+      >
+      </mat-paginator>
+      
+    </div>
+  </div>
+</section>

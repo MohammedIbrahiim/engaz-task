@@ -1,0 +1,43 @@
+<section class="mt-5">
+  <h2 >potential-duplicates works!</h2>
+
+
+  <div class="table-wrapper">
+      <table class="fl-table">
+          <thead>
+          <tr>
+              <th>first_name</th>
+              <th>last_name</th>
+              <th>email</th>
+              <th>source</th>
+              <th>cell_phone</th>
+              <th>home_phone</th>
+              <th>Action</th>
+  
+          </tr>
+          </thead>
+          <tbody *ngIf="filteredUsers.length">
+            <tr *ngFor="let item of filteredUsers"  >
+              <td >{{ item.first_name | defultString }}</td>
+              <td >{{ item.last_name | defultString }}</td>
+              <td>{{ item.email | defultString }}</td>
+              <td>{{ item.source | defultString }}</td>
+              <td>{{ item.cell_phone | defultString }}</td>
+              <td>{{ item.home_phone | defultString }}</td>
+              <td (click)="$event.stopPropagation()"><input type="checkbox" role="button" (change)="updateId($event,item)"></td>
+  
+            </tr>
+          </tbody>
+  
+          <tbody *ngIf="!filteredUsers.length">
+          <tr >
+              <td colspan="7" class="no-data">No Potential Duplicates</td>
+              </tr>
+           
+          </tbody>
+      
+      </table>
+  </div>
+</section>
+
+  
